@@ -6,14 +6,16 @@
     <title>Jahnavi & Samarth's Wedding Itinerary</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Cormorant+Garamond:wght@500&display=swap" rel="stylesheet">
     <style>
+        /* General Styles */
         body {
             font-family: 'Cormorant Garamond', serif;
             margin: 0;
             padding: 0;
-            background-color: #fafafa;
+            background: linear-gradient(135deg, #f9f9f9, #e6e6e6);
             color: #4a4a4a;
             scroll-behavior: smooth;
         }
+
         header {
             background: linear-gradient(135deg, #fff, #f5f5f5);
             color: #333;
@@ -21,24 +23,31 @@
             padding: 60px 20px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             position: relative;
+            overflow: hidden;
         }
+
         header h1 {
             font-family: 'Cinzel', serif;
             font-size: 2.5rem;
             margin: 0;
             color: #d4af37;
+            animation: fadeIn 2s ease-in-out;
         }
+
         header p {
             font-size: 1.2rem;
             margin: 10px 0 0;
             color: #666;
+            animation: fadeIn 3s ease-in-out;
         }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
             position: relative;
         }
+
         .event {
             background: white;
             border-radius: 10px;
@@ -48,13 +57,16 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
             z-index: 1;
         }
+
         .event:hover {
             transform: scale(1.02);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
+
         .event img {
             width: 100%;
             max-width: 300px;
@@ -63,33 +75,42 @@
             margin-bottom: 20px;
             object-fit: cover;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            animation: float 4s ease-in-out infinite;
         }
+
         .event h2 {
             font-family: 'Cinzel', serif;
             font-size: 2rem;
             color: #d4af37;
             margin: 0;
             text-align: center;
+            animation: fadeIn 1s ease-in-out;
         }
+
         .event p {
             font-size: 1rem;
             line-height: 1.6;
             color: #555;
             text-align: center;
+            animation: fadeIn 2s ease-in-out;
         }
+
         .event .details {
             flex: 1;
             text-align: center;
         }
+
         .event .details span {
             display: block;
             margin: 15px 0;
             font-weight: bold;
             color: #777;
         }
+
         .event .details span strong {
             color: #d4af37;
         }
+
         footer {
             background: #333;
             color: white;
@@ -97,9 +118,11 @@
             padding: 20px;
             margin-top: 40px;
         }
+
         footer p {
             margin: 0;
         }
+
         .nav-menu {
             position: fixed;
             top: 10px;
@@ -113,15 +136,55 @@
             flex-wrap: wrap;
             gap: 10px;
         }
+
         .nav-menu a {
             text-decoration: none;
             color: #333;
             font-weight: 600;
             font-family: 'Cinzel', serif;
             font-size: 0.9rem;
+            transition: color 0.3s ease;
         }
+
         .nav-menu a:hover {
             color: #d4af37;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Confetti Animation */
+        .confetti {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1001;
+            overflow: hidden;
+        }
+
+        .confetti-piece {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #ffd700;
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            animation: confetti-fall 5s linear infinite;
+        }
+
+        @keyframes confetti-fall {
+            0% { transform: translateY(-100vh) rotate(0deg); }
+            100% { transform: translateY(100vh) rotate(720deg); }
         }
 
         /* Media Queries for Mobile Devices */
@@ -150,6 +213,20 @@
     </style>
 </head>
 <body>
+    <!-- Confetti Animation -->
+    <div class="confetti">
+        <div class="confetti-piece"></div>
+        <div class="confetti-piece"></div>
+        <div class="confetti-piece"></div>
+        <div class="confetti-piece"></div>
+        <div class="confetti-piece"></div>
+        <div class="confetti-piece"></div>
+        <div class="confetti-piece"></div>
+        <div class="confetti-piece"></div>
+        <div class="confetti-piece"></div>
+        <div class="confetti-piece"></div>
+    </div>
+
     <div class="nav-menu">
         <a href="#sagai">Sagai</a>
         <a href="#mehandi">Mehandi</a>
@@ -165,7 +242,7 @@
     <div class="container">
         <!-- Sagai cum Ring Ceremony -->
         <div class="event" id="sagai">
-            <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMnhna3VxdnVnZ2F1NTV4dG5yanJieXNxNTh2Yjl4dW0wMGFpazM4ZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/YkJItknzcJQV58InpK/giphy.gif" alt="Sagai Ceremony">
+            <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMnUzZnlrYTl3bm95a3hjMzcyang0ZmtqaDNmazhtbHZtend6aW1odiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/WojyJKcRgYueLBN7XB/giphy.gif" alt="Sagai Ceremony">
             <div class="details">
                 <h2>Sagai cum Ring Ceremony 💍✨</h2>
                 <p>The Sagai ceremony is the first step in the journey of togetherness for Jahnavi and Samarth. It’s a heartfelt moment where the families come together to bless the couple. The exchange of rings symbolizes their commitment and love. Expect a blend of traditions, laughter, and joy as we celebrate this beautiful milestone. 🌸💖</p>
@@ -177,11 +254,11 @@
 
         <!-- Mehandi cum Sangeet Night -->
         <div class="event" id="mehandi">
-            <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMnhna3VxdnVnZ2F1NTV4dG5yanJieXNxNTh2Yjl4dW0wMGFpazM4ZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/YkJItknzcJQV58InpK/giphy.gif" alt="Mehandi Ceremony">
+            <img src="https://media.tenor.com/I0mAzJr386wAAAAi/ijemy.gif" alt="Mehandi Ceremony">
             <div class="details">
                 <h2>Mehandi cum Sangeet Night 💃💃</h2>
                 <p>Get ready for a night of music, dance, and vibrant colors! The Mehandi ceremony is all about adorning hands with intricate henna designs, symbolizing love and good fortune. 🌿✨ The Sangeet is a celebration of togetherness, where Jahnavi and Samarth will dance their hearts out. 💃🕺 Don’t forget to wear your blingy best and join us for an unforgettable evening! 🎶💃</p>
-                <span><strong>Date:</strong> 15th April 2025 | <strong>Time:</strong> 7:00 PM - 10:00 PM ⏰</span>
+                <span><strong>Date:</strong> 15th April 2025 | <strong>Time:</strong> 7:00 PM - 12:00 PM ⏰</span>
                 <span><strong>Dress Code:</strong> Blingy Lehengas (Females) ✨💃 | Catchy Ethnic Kurtas (Males) 👕</span>
                 <span><strong>Venue:</strong> The Velvet Leaf by Melrose, 2nd Floor 🏢</span>
             </div>
@@ -189,12 +266,12 @@
 
         <!-- Haldi Ceremony -->
         <div class="event" id="haldi">
-            <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMnhna3VxdnVnZ2F1NTV4dG5yanJieXNxNTh2Yjl4dW0wMGFpazM4ZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/YkJItknzcJQV58InpK/giphy.gif" alt="Haldi Ceremony">
+            <img src="https://media1.tenor.com/m/QfvxziSD7sUAAAAd/haldi-sidkibb.gif" alt="Haldi Ceremony">
             <div class="details">
                 <h2>Haldi Ceremony 🌼💛</h2>
                 <p>The Haldi ceremony is a fun and vibrant ritual where turmeric paste is applied to the bride and groom for good luck and glowing skin. ✨ Dress in blue (bride’s family) or green (groom’s family) and join the playful festivities! 💃🎨</p>
                 <span><strong>Date:</strong> 16th April 2025 | <strong>Time:</strong> 1:00 PM - 3:00 PM ⏰</span>
-                <span><strong>Dress Code:</strong> Blue (Bride’s Family) 💙 | Green (Groom’s Family) 💚</span>
+                <span><strong>Dress Code:</strong> Blue (Bride’s Family) 💙 | Yellow (Groom’s Family)💛 </span>
                 <span><strong>Venue:</strong> The Velvet Leaf by Melrose, 2nd Floor 🏢</span>
             </div>
         </div>
@@ -205,8 +282,8 @@
             <div class="details">
                 <h2>Wedding Ceremony 💕🌹</h2>
                 <p>The grand finale! Witness the sacred union of Jahnavi and Samarth as they take the seven vows of marriage. 🙏 The evening will be filled with rituals, blessings, and celebrations that will last all night. 🌙</p>
-                <span><strong>Date:</strong> 16th April 2025 | <strong>Time:</strong> 6:00 PM onwards ⏰</span>
-                <span><strong>Venue:</strong> The Velvet Leaf by Melrose, Ground Floor 🏢</span>
+                <span><strong>Date:</strong> 16th April 2025 | <strong>Time:</strong> 8:00 PM onwards ⏰</span>
+                <span><strong>Venue:</strong> The Velvet Leaf by Melrose, Grd-Floor 🏢</span>
             </div>
         </div>
     </div>
